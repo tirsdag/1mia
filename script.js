@@ -1,6 +1,6 @@
 // Constants
 const TARGET_TREES = 1000000000;
-const TARGET_DATE = new Date('2030-12-31');
+const TARGET_DATE = new Date('2045-12-31');
 const START_DATE = new Date('2024-11-18');
 
 // Initialize map variables
