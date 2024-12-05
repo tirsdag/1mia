@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Milliard Træer Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>En Milliard Træer Tracker</h1>
+        <div class="input-section">
+            <div class="input-group">
+                <label for="currentDate">Vælg dato:</label>
+                <input type="date" id="currentDate">
+            </div>
+            <div class="input-group">
+                <label for="treesPerHectare">Træer pr. hektar:</label>
+                <select id="treesPerHectare" onchange="updateProjection()">
+                    <option value="1000">1.000 træer</option>
+                    <option value="2000">2.000 træer</option>
+                    <option value="3000">3.000 træer</option>
+                    <option value="4400" selected>4.400 træer</option>
+                    <option value="5000">5.000 træer</option>
+                    <option value="6000">6.000 træer</option>
+                </select>
+            </div>
+            <button onclick="updateProjection()">Opdater Projektion</button>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>Måldato</h3>
+                <p>31. december 2030</p>
+            </div>
+            <div class="stat-box">
+                <h3>Målsatte Træer</h3>
+                <p>1.000.000.000</p>
+            </div>
+            <div class="stat-box">
+                <h3>Nødvendig Rate</h3>
+                <p id="requiredRate">Beregner...</p>
+            </div>
+            <div class="stat-box">
+                <h3>Projekterede Træer</h3>
+                <p id="projectedTrees">Beregner...</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="progressChart"></canvas>
+        </div>
+
+        <div class="map-section">
+            <h2>Tilsvarende Skovareal i Danmark</h2>
+            <p>Denne visualisering viser det nødvendige areal til det projekterede antal træer på den valgte dato (med antagelse af 4.400 træer pr. hektar)</p>
+            <div class="area-stats">
+                <div class="stat-box">
+                    <h3>Nødvendigt Skovareal</h3>
+                    <p id="forestArea">Beregner...</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Til Sammenligning</h3>
+                    <p>Københavns areal: 8.900 hektar</p>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>Om Projektet</h2>
+            <p>Denne tracker hjælper med at visualisere fremskridtet mod målet om at plante en milliard træer mellem 18. november 2024 og 31. december 2030. 
+               Vælg en dato for at se det projekterede antal træer, der skal plantes inden denne dato for at nå målet.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
